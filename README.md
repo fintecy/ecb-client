@@ -4,22 +4,22 @@
 
 Java client based on new HttpClient (java 11+)
 
-## Usage
-### Add dependency
-https://mvnrepository.com/artifact/org.fintecy.md/ecb-client/1.0.0
-#### Gradle
+## Dependency
+https://mvnrepository.com/artifact/org.fintecy.md/ecb-client/1.0.1
+### Gradle
 ```
-implementation 'org.fintecy.md:ecb-client:1.0.0'
+implementation 'org.fintecy.md:ecb-client:1.0.1'
 ```
-#### Maven
+### Maven
 ```
 <dependency>
     <groupId>org.fintecy.md</groupId>
     <artifactId>ecb-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
+## Usage
 ### Simple client creation
 ```
 EcbApi client = EcbClient.api();
