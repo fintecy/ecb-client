@@ -5,6 +5,21 @@
 Java client based on new HttpClient (java 11+)
 
 ## Usage
+### Add dependency
+https://mvnrepository.com/artifact/org.fintecy.md/ecb-client/1.0.0
+#### Gradle
+```
+implementation 'org.fintecy.md:ecb-client:1.0.0'
+```
+#### Maven
+```
+<dependency>
+    <groupId>org.fintecy.md</groupId>
+    <artifactId>ecb-client</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ### Simple client creation
 ```
 EcbApi client = EcbClient.api();
@@ -43,7 +58,7 @@ var currencies = client.supportedCurrencies();
 - Java 11+
 - FailSafe
 - Slf4j api
-- Jaxb (api)
+- jackson
 - WireMock (tests)
 - Junit5 (tests)
 

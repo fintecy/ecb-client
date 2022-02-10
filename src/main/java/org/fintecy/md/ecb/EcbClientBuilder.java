@@ -1,8 +1,9 @@
 package org.fintecy.md.ecb;
 
-import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import dev.failsafe.Policy;
+import org.fintecy.md.ecb.serialization.EcbModule;
 
 import java.net.http.HttpClient;
 import java.util.ArrayList;
@@ -12,13 +13,10 @@ class EcbClientBuilder {
     private final List<Policy<Object>> policies = new ArrayList<>();
     private HttpClient client = HttpClient.newHttpClient();
     private String rootPath = EcbApi.ROOT_PATH;
-    private XmlMapper mapper = defaultMapper();
+    private ObjectMapper mapper = defaultMapper();
 
-    private static XmlMapper defaultMapper() {
-        var mapper = new XmlMapper();
-        final var customModule = new SimpleModule();
-        mapper.registerModule(customModule);
-        return mapper;
+    private static ObjectMapper defaultMapper() {
+        return new XmlMapper().registerModule(new EcbModule());
     }
 
     public EcbClientBuilder useClient(HttpClient client) {

@@ -6,11 +6,7 @@ plugins {
 
 dependencies {
     implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${jacksonVersion}"
-    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
-    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
-    implementation "jakarta.xml.bind:jakarta.xml.bind-api:${jakartaVersion}"
-    implementation "com.sun.xml.bind:jaxb-impl:${jakartaVersion}"
     implementation "dev.failsafe:failsafe:${failsafeVersion}"
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
     testImplementation "com.github.tomakehurst:wiremock-jre8:${wireMockVersion}"
