@@ -22,12 +22,12 @@ publishing {
                 name = 'ECB Client'
                 packaging = 'jar'
                 description = 'Async Java client for European Central Bank.'
-                url = 'https://github.com/fintecy/ebc-client'
+                url = 'https://github.com/fintecy/ecb-client'
 
                 scm {
-                    connection = 'scm:git:https://github.com/fintecy/ebc-client.git'
-                    developerConnection = 'scm:git:https://github.com/fintecy/ebc-client.git'
-                    url = 'https://fintecy.github.io/ebc-client'
+                    connection = 'scm:git:https://github.com/fintecy/ecb-client.git'
+                    developerConnection = 'scm:git:https://github.com/fintecy/ecb-client.git'
+                    url = 'https://fintecy.github.io/ecb-client'
                 }
 
                 licenses {

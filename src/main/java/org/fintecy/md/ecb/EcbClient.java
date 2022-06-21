@@ -7,6 +7,7 @@ import dev.failsafe.Policy;
 import org.fintecy.md.ecb.response.Currency;
 import org.fintecy.md.ecb.response.EcbResponse;
 import org.fintecy.md.ecb.response.ExchangeRate;
+import org.fintecy.md.ecb.response.TimePoint;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -14,15 +15,13 @@ import java.net.http.HttpRequest;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.net.http.HttpResponse.BodyHandlers.ofString;
 import static java.util.Optional.ofNullable;
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static org.fintecy.md.ecb.response.Currency.currency;
 
 public class EcbClient implements EcbApi {
     private final static String DAILY_PATH = "eurofxref-daily.xml";
@@ -107,12 +106,6 @@ public class EcbClient implements EcbApi {
         return processRequest.getTimePoints()
                 .entrySet()
                 .stream()
-                .map(q -> new AbstractMap.SimpleEntry<>(q.getKey(),
-                        q.getValue().getRates()
-                                .stream()
-                                .map(r -> new ExchangeRate(currency("EUR"), currency(r.getCurrency()),
-                                        q.getKey(), r.getRate()))
-                                .collect(toList())))
-                .collect(toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue));
+                .collect(toMap(Map.Entry::getKey, e->e.getValue().getRates()));
     }
 }
